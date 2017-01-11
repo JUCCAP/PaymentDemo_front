@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h2>Registro de transacciones</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <input type="text" ng-model="search" placeholder="Búsqueda general..." class="form-control"></input>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-lg-4" ng-repeat="transaction in transactions | filter:search">
+        <div class="well" style="overflow:scroll">
+          <div class="row">
+            <div class="col-xs-4">
+              Fecha:
+            </div>
+            <div class="col-xs-8">
+              {{transaction.createdAt | date}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4">
+              Cliente:
+            </div>
+            <div class="col-xs-8">
+              {{transaction.client}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4">
+              E-mail:
+            </div>
+            <div class="col-xs-8">
+              {{transaction.email}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4">
+              Referencia:
+            </div>
+            <div class="col-xs-8">
+              {{transaction.reference}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4">
+              Total:
+            </div>
+            <div class="col-xs-8">
+              {{transaction.amount | currency}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4">
+              Pago:
+            </div>
+            <div class="col-xs-8 text-center">
+              <i class="fa fa-2x fa-cc-visa" ng-show="transaction.payment_type=='visa'"></i>
+              <i class="fa fa-2x fa-cc-mastercard" ng-show="transaction.payment_type=='master'"></i>
+              <i class="fa fa-2x fa-money" ng-show="transaction.payment_type=='cash'"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

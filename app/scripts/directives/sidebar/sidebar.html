@@ -1,0 +1,142 @@
+
+<div class="sidebar-nav navbar-collapse" style="position:fixed;">
+    <div class="navbar navbar-default sidebar" role="navigation">
+        <ul class="nav in" id="side-menu">
+            <li ng-show="user_perms.crm.view_client_menu" ng-class="{active: collapseVar==9}">{{dropDown}}
+                <a href="" ng-click="check(9)">
+                    <i class="fa fa-2x fa-user"></i> <span class="nav-first-level"><b>Clientes</b></span>
+                </a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=9">
+                    <li ng-show="user_perms.crm.view_client" ui-sref-active="active">
+                        <a ui-sref="crm.clients"> Clientes</a>
+                    </li>
+                     <li ng-show="user_perms.crm.change_client" ui-sref-active="active">
+                        <a ui-sref="crm.client_update"> Cliente Nuevo</a>
+                    </li>
+                    <li ng-show="user_perms.crm.vendor_client_relation" ui-sref-active="active">
+                       <a ui-sref="crm.client_assign"> Vendedor-Clientes</a>
+                   </li>
+                   <li ng-show="user_perms.crm.zone_client_relation" ui-sref-active="active">
+                      <a ui-sref="crm.zone_assign"> Zona-Clientes</a>
+                  </li>
+                </ul>
+            </li>
+            <li ng-show="user_perms.sales.view_sales_menu" ng-class="{active: collapseVar==5}">{{dropDown}}
+                <a href="" ng-click="check(5)">
+                    <i class="fa fa-2x fa-suitcase"></i> <span class="nav-first-level"><b>Ventas</b></span>
+                </a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=5">
+                    <li ng-show="user_perms.dashboard.view_dashboard" ui-sref-active="active">
+                        <a ui-sref="sales.dashboard"> Dashboard</a>
+                    </li>
+                    </li>
+                    <li ng-show="user_perms.sales.view_sale" ui-sref-active="active">
+                        <a ui-sref="sales.sale_list"> Pedidos</a>
+                    </li>
+                    <li ng-show="user_perms.sales.add_sale" ui-sref-active="active">
+                        <a ui-sref="sales.sale"> Pedido Nuevo</a>
+                    </li>
+                    <li ng-show="user_perms.sales.add_salegoal" ui-sref-active="active">
+                        <a ui-sref="sales.sale_goal"> Meta de Ventas</a>
+                    </li>
+                    <li ng-show="user_perms.sales.view_dailyroutes" ui-sref-active="active">
+                        <a ui-sref="sales.daily_routes"> Ruta Diaria</a>
+                    </li>
+                    <li ng-show="user_perms.sales.view_dailyroutes" ui-sref-active="active">
+                        <a ui-sref="sales.sales_report"> Reporte de ventas</a>
+                    </li>
+                    <li ng-show="user_perms.sales.view_dailyroutes" ui-sref-active="active">
+                        <a ui-sref="sales.payment_report"> Reporte de pagos</a>
+                    </li>
+                </ul>
+            </li>
+            <li ng-show="user_perms.mrp.view_mrp_menu" ng-class="{active: collapseVar==10}">{{dropDown}}
+                <a href="" ng-click="check(10)">
+                    <i class="fa fa-2x fa-gears"></i> <span class="nav-first-level"><b>Producción</b></span>
+                </a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=10">
+                    <li ng-show="user_perms.mrp.add_supplier" ui-sref-active="active">
+                        <a ui-sref="mrp_conf.suppliers">Personal de Maquila</a>
+                    </li>
+                    <li ng-show="user_perms.mrp.view_productionorder" ui-sref-active="active">
+                        <a ui-sref="mrp.orders">Órdenes</a>
+                    </li>
+                    <li ng-show="user_perms.mrp.add_productionorder" ui-sref-active="active">
+                        <a ui-sref="mrp.new_order">Nueva órden</a>
+                    </li>
+                    <li ng-show="user_perms.mrp.add_assamblycost" ui-sref-active="active">
+                        <a ui-sref="mrp_conf.assambly_cost">Costo de maquila</a>
+                    </li>
+                </ul>
+            </li>
+            <li ng-show="user_perms.hrm.view_hrm_menu" ng-class="{active: collapseVar==6}">{{dropDown}}
+                <a href="" ng-click="check(6)">
+                    <i class="fa fa-2x fa-users"></i> <span class="nav-first-level"><b>Recursos Humanos</b></span>
+                </a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=6">
+                    <li ng-show="user_perms.hrm.add_employee" ui-sref-active="active">
+                        <a ui-sref="hrm.employees">Personal</a>
+                    </li>
+                    <!--li ng-show="user_perms.mrp.add_" ui-sref-active="active">
+                        <a ui-sref="hrm.assignments">Tareas</a>
+                    </li-->
+                </ul>
+            </li>
+            <li ng-show="user_perms.stock.view_warehouse_menu" ng-class="{active: collapseVar==8}">{{dropDown}}
+                <a href="" ng-click="check(8)">
+                    <i class="fa fa-2x fa-cubes"></i> <span class="nav-first-level"><b>Almacén</b></span>
+                </a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=8">
+                    <li ui-sref-active="active" ng-show="user_perms.stock.view_packingorder">
+                        <a ui-sref="sales.packing_order">Empaque de pedidos</a>
+                    </li>
+                    <!-- <li ng-show="user_perms.stock.add_productstock" ui-sref-active="active">
+                        <a ui-sref="stock.Stock">Inventario OLD</a>
+                    </li> -->
+                    <li ng-show="user_perms.stock.add_productstock" ui-sref-active="active">
+                        <a ui-sref="stock_cart.stock">Inventario</a>
+                    </li>
+                    <li ng-show="user_perms.products.add_product" ui-sref-active="active">
+                        <a ui-sref="product.new_product">Nuevos productos</a>
+                    </li>
+                    <li  ng-show="user_perms.stock.add_warehouse" ui-sref-active="active">
+                        <a ui-sref="warehouse.warehouse">Almacen</a>
+                    </li>
+                </ul>
+            </li>
+            <li ng-show="user_perms.common.view_config_menu" ng-class="{active: collapseVar==7}">{{dropDown}}
+                <a href="" ng-click="check(7)">
+                    <i class="fa fa-2x fa-wrench"></i> <span class="nav-first-level"><b>Configuración</b></span>
+                </a>
+                <ul class="nav nav-second-level" uib-collapse="collapseVar!=7">
+                    <li ng-show="user_perms.common.add_zone" ui-sref-active="active">
+                        <a ui-sref="common.zones">Zonas</a>
+                    </li>
+                    <li ng-show="user_perms.common.add_route" ui-sref-active="active">
+                        <a ui-sref="common.routes">Rutas</a>
+                    </li>
+                    <li ng-show="user_perms.common.add_permission" ui-sref-active="active">
+                        <a ui-sref="common.permission">Permisos</a>
+                    </li>
+                    <li ng-show="user_perms.products.add_category" ui-sref-active="active">
+                        <a ui-sref="product.category">Categorias</a>
+                    </li>
+                    <li ng-show="user_perms.products.add_category" ui-sref-active="active">
+                        <a ui-sref="product.product_assign">Categorias-Productos</a>
+                    </li>
+                    <li ng-show="user_perms.products.add_category" ui-sref-active="active">
+                        <a ui-sref="product.product_status">Productos Activos</a>
+                    </li>
+                    <li ng-show="user_perms.products.add_pricetype" ui-sref-active="active">
+                        <a ui-sref="product.price">Tipos de Precio</a>
+                    </li>
+                    <li ng-show="user_perms.mrp.add_finishtype" ui-sref-active="active">
+                        <a ui-sref="mrp_conf.new_finish">Acabados</a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+    <!-- /.sidebar-collapse -->
+</div>
