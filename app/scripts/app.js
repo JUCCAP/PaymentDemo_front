@@ -57,6 +57,7 @@ var app = angular.module('sbAdminApp', [
 }]);
 app.constant('sysvars',{
 
-  back_domain: 'http://127.0.0.1:1337',
+  // back_domain: 'http://127.0.0.1:1337',
+  back_domain: 'http://camlab.website:1337',
 
 });
